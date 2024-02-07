@@ -1,13 +1,12 @@
-
 import argparse
 import time
-import numpy as np
 from importlib import import_module
+
+import numpy as np
 from qm import QuantumMachinesManager, SimulationConfig, generate_qua_script, qua
 from qm.octave import QmOctaveConfig
 from qm.simulate.credentials import create_credentials
 from qualang_tools.simulator_tools import create_simulator_controller_connections
-
 
 HOST = "192.168.0.101"
 PORT = 80
@@ -24,10 +23,12 @@ class Controller:
         credentials = None
         if cloud:
             credentials = create_credentials()
-        self.manager = QuantumMachinesManager(host=HOST, port=PORT, credentials=credentials)
+        self.manager = QuantumMachinesManager(
+            host=HOST, port=PORT, credentials=credentials
+        )
 
     def simulate(self, config, prog, duration):
-        ncontrollers = len(config["controllers"])    
+        ncontrollers = len(config["controllers"])
         controller_connections = create_simulator_controller_connections(ncontrollers)
         simulation_config = SimulationConfig(
             duration=duration,
@@ -57,7 +58,7 @@ def main(program, simulate, duration):
         samples = result.get_simulated_samples()
         np.save("data.npy", samples.con3.analog)
         return
-    
+
     start_time = time.time()
     controller = Controller()
     conn_time = time.time() - start_time

@@ -1,22 +1,33 @@
-
 # Single QUA script generated at 2024-02-07 17:07:09.341746
 # QUA library version: 1.1.6
 
 from qm.qua import *
 
 with program() as prog:
-    v1 = declare(int, )
-    v2 = declare(fixed, )
-    v3 = declare(fixed, )
-    wait((4+(0*(Cast.to_int(v2)+Cast.to_int(v3)))), "readout0")
-    with for_(v1,0,(v1<4096),(v1+1)):
+    v1 = declare(
+        int,
+    )
+    v2 = declare(
+        fixed,
+    )
+    v3 = declare(
+        fixed,
+    )
+    wait((4 + (0 * (Cast.to_int(v2) + Cast.to_int(v3)))), "readout0")
+    with for_(v1, 0, (v1 < 4096), (v1 + 1)):
         align()
         play("drive(40, 0.0025, Gaussian(5))", "drive0")
         frame_rotation_2pi(-0.013333333333333334, "drive0")
         play("drive(40, 0.0025, Gaussian(5))", "drive0")
         reset_frame("drive0")
         wait(21, "readout0")
-        measure("readout(2000, 0.005, Rectangular())", "readout0", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
+        measure(
+            "readout(2000, 0.005, Rectangular())",
+            "readout0",
+            None,
+            dual_demod.full("cos", "out1", "sin", "out2", v2),
+            dual_demod.full("minus_sin", "out1", "cos", "out2", v3),
+        )
         r1 = declare_stream()
         save(v2, r1)
         r2 = declare_stream()
@@ -28,7 +39,13 @@ with program() as prog:
         play("drive(40, 0.0025, Gaussian(5))", "drive0")
         reset_frame("drive0")
         wait(75270, "readout0")
-        measure("readout(2000, 0.005, Rectangular())", "readout0", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
+        measure(
+            "readout(2000, 0.005, Rectangular())",
+            "readout0",
+            None,
+            dual_demod.full("cos", "out1", "sin", "out2", v2),
+            dual_demod.full("minus_sin", "out1", "cos", "out2", v3),
+        )
         save(v2, r1)
         save(v3, r2)
         wait(75500, "drive0")
@@ -38,7 +55,13 @@ with program() as prog:
         play("drive(40, 0.0025, Gaussian(5))", "drive0")
         reset_frame("drive0")
         wait(75520, "readout0")
-        measure("readout(2000, 0.005, Rectangular())", "readout0", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
+        measure(
+            "readout(2000, 0.005, Rectangular())",
+            "readout0",
+            None,
+            dual_demod.full("cos", "out1", "sin", "out2", v2),
+            dual_demod.full("minus_sin", "out1", "cos", "out2", v3),
+        )
         save(v2, r1)
         save(v3, r2)
         wait(75500, "drive0")
@@ -48,7 +71,13 @@ with program() as prog:
         play("drive(40, 0.0025, Gaussian(5))", "drive0")
         reset_frame("drive0")
         wait(75770, "readout0")
-        measure("readout(2000, 0.005, Rectangular())", "readout0", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
+        measure(
+            "readout(2000, 0.005, Rectangular())",
+            "readout0",
+            None,
+            dual_demod.full("cos", "out1", "sin", "out2", v2),
+            dual_demod.full("minus_sin", "out1", "cos", "out2", v3),
+        )
         save(v2, r1)
         save(v3, r2)
         wait(75500, "drive0")
@@ -58,7 +87,13 @@ with program() as prog:
         play("drive(40, 0.0025, Gaussian(5))", "drive0")
         reset_frame("drive0")
         wait(76020, "readout0")
-        measure("readout(2000, 0.005, Rectangular())", "readout0", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
+        measure(
+            "readout(2000, 0.005, Rectangular())",
+            "readout0",
+            None,
+            dual_demod.full("cos", "out1", "sin", "out2", v2),
+            dual_demod.full("minus_sin", "out1", "cos", "out2", v3),
+        )
         save(v2, r1)
         save(v3, r2)
         wait(75500, "drive0")
@@ -68,7 +103,13 @@ with program() as prog:
         play("drive(40, 0.0025, Gaussian(5))", "drive0")
         reset_frame("drive0")
         wait(76270, "readout0")
-        measure("readout(2000, 0.005, Rectangular())", "readout0", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
+        measure(
+            "readout(2000, 0.005, Rectangular())",
+            "readout0",
+            None,
+            dual_demod.full("cos", "out1", "sin", "out2", v2),
+            dual_demod.full("minus_sin", "out1", "cos", "out2", v3),
+        )
         save(v2, r1)
         save(v3, r2)
         wait(75500, "drive0")
@@ -78,7 +119,13 @@ with program() as prog:
         play("drive(40, 0.0025, Gaussian(5))", "drive0")
         reset_frame("drive0")
         wait(76520, "readout0")
-        measure("readout(2000, 0.005, Rectangular())", "readout0", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
+        measure(
+            "readout(2000, 0.005, Rectangular())",
+            "readout0",
+            None,
+            dual_demod.full("cos", "out1", "sin", "out2", v2),
+            dual_demod.full("minus_sin", "out1", "cos", "out2", v3),
+        )
         save(v2, r1)
         save(v3, r2)
         wait(75500, "drive0")
@@ -88,7 +135,13 @@ with program() as prog:
         play("drive(40, 0.0025, Gaussian(5))", "drive0")
         reset_frame("drive0")
         wait(76770, "readout0")
-        measure("readout(2000, 0.005, Rectangular())", "readout0", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
+        measure(
+            "readout(2000, 0.005, Rectangular())",
+            "readout0",
+            None,
+            dual_demod.full("cos", "out1", "sin", "out2", v2),
+            dual_demod.full("minus_sin", "out1", "cos", "out2", v3),
+        )
         save(v2, r1)
         save(v3, r2)
         wait(75500, "drive0")
@@ -98,7 +151,13 @@ with program() as prog:
         play("drive(40, 0.0025, Gaussian(5))", "drive0")
         reset_frame("drive0")
         wait(77020, "readout0")
-        measure("readout(2000, 0.005, Rectangular())", "readout0", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
+        measure(
+            "readout(2000, 0.005, Rectangular())",
+            "readout0",
+            None,
+            dual_demod.full("cos", "out1", "sin", "out2", v2),
+            dual_demod.full("minus_sin", "out1", "cos", "out2", v3),
+        )
         save(v2, r1)
         save(v3, r2)
         wait(75500, "drive0")
@@ -108,7 +167,13 @@ with program() as prog:
         play("drive(40, 0.0025, Gaussian(5))", "drive0")
         reset_frame("drive0")
         wait(77270, "readout0")
-        measure("readout(2000, 0.005, Rectangular())", "readout0", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
+        measure(
+            "readout(2000, 0.005, Rectangular())",
+            "readout0",
+            None,
+            dual_demod.full("cos", "out1", "sin", "out2", v2),
+            dual_demod.full("minus_sin", "out1", "cos", "out2", v3),
+        )
         save(v2, r1)
         save(v3, r2)
         wait(75500, "drive0")
@@ -118,7 +183,13 @@ with program() as prog:
         play("drive(40, 0.0025, Gaussian(5))", "drive0")
         reset_frame("drive0")
         wait(77520, "readout0")
-        measure("readout(2000, 0.005, Rectangular())", "readout0", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
+        measure(
+            "readout(2000, 0.005, Rectangular())",
+            "readout0",
+            None,
+            dual_demod.full("cos", "out1", "sin", "out2", v2),
+            dual_demod.full("minus_sin", "out1", "cos", "out2", v3),
+        )
         save(v2, r1)
         save(v3, r2)
         wait(75500, "drive0")
@@ -128,7 +199,13 @@ with program() as prog:
         play("drive(40, 0.0025, Gaussian(5))", "drive0")
         reset_frame("drive0")
         wait(77770, "readout0")
-        measure("readout(2000, 0.005, Rectangular())", "readout0", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
+        measure(
+            "readout(2000, 0.005, Rectangular())",
+            "readout0",
+            None,
+            dual_demod.full("cos", "out1", "sin", "out2", v2),
+            dual_demod.full("minus_sin", "out1", "cos", "out2", v3),
+        )
         save(v2, r1)
         save(v3, r2)
         wait(75500, "drive0")
@@ -138,7 +215,13 @@ with program() as prog:
         play("drive(40, 0.0025, Gaussian(5))", "drive0")
         reset_frame("drive0")
         wait(78020, "readout0")
-        measure("readout(2000, 0.005, Rectangular())", "readout0", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
+        measure(
+            "readout(2000, 0.005, Rectangular())",
+            "readout0",
+            None,
+            dual_demod.full("cos", "out1", "sin", "out2", v2),
+            dual_demod.full("minus_sin", "out1", "cos", "out2", v3),
+        )
         save(v2, r1)
         save(v3, r2)
         wait(75500, "drive0")
@@ -148,7 +231,13 @@ with program() as prog:
         play("drive(40, 0.0025, Gaussian(5))", "drive0")
         reset_frame("drive0")
         wait(78270, "readout0")
-        measure("readout(2000, 0.005, Rectangular())", "readout0", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
+        measure(
+            "readout(2000, 0.005, Rectangular())",
+            "readout0",
+            None,
+            dual_demod.full("cos", "out1", "sin", "out2", v2),
+            dual_demod.full("minus_sin", "out1", "cos", "out2", v3),
+        )
         save(v2, r1)
         save(v3, r2)
         wait(75500, "drive0")
@@ -158,7 +247,13 @@ with program() as prog:
         play("drive(40, 0.0025, Gaussian(5))", "drive0")
         reset_frame("drive0")
         wait(78520, "readout0")
-        measure("readout(2000, 0.005, Rectangular())", "readout0", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
+        measure(
+            "readout(2000, 0.005, Rectangular())",
+            "readout0",
+            None,
+            dual_demod.full("cos", "out1", "sin", "out2", v2),
+            dual_demod.full("minus_sin", "out1", "cos", "out2", v3),
+        )
         save(v2, r1)
         save(v3, r2)
         wait(75500, "drive0")
@@ -168,7 +263,13 @@ with program() as prog:
         play("drive(40, 0.0025, Gaussian(5))", "drive0")
         reset_frame("drive0")
         wait(78770, "readout0")
-        measure("readout(2000, 0.005, Rectangular())", "readout0", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
+        measure(
+            "readout(2000, 0.005, Rectangular())",
+            "readout0",
+            None,
+            dual_demod.full("cos", "out1", "sin", "out2", v2),
+            dual_demod.full("minus_sin", "out1", "cos", "out2", v3),
+        )
         save(v2, r1)
         save(v3, r2)
         wait(75500, "drive0")
@@ -178,7 +279,13 @@ with program() as prog:
         play("drive(40, 0.0025, Gaussian(5))", "drive0")
         reset_frame("drive0")
         wait(79020, "readout0")
-        measure("readout(2000, 0.005, Rectangular())", "readout0", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
+        measure(
+            "readout(2000, 0.005, Rectangular())",
+            "readout0",
+            None,
+            dual_demod.full("cos", "out1", "sin", "out2", v2),
+            dual_demod.full("minus_sin", "out1", "cos", "out2", v3),
+        )
         save(v2, r1)
         save(v3, r2)
         wait(75500, "drive0")
@@ -188,7 +295,13 @@ with program() as prog:
         play("drive(40, 0.0025, Gaussian(5))", "drive0")
         reset_frame("drive0")
         wait(79270, "readout0")
-        measure("readout(2000, 0.005, Rectangular())", "readout0", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
+        measure(
+            "readout(2000, 0.005, Rectangular())",
+            "readout0",
+            None,
+            dual_demod.full("cos", "out1", "sin", "out2", v2),
+            dual_demod.full("minus_sin", "out1", "cos", "out2", v3),
+        )
         save(v2, r1)
         save(v3, r2)
         wait(75500, "drive0")
@@ -198,7 +311,13 @@ with program() as prog:
         play("drive(40, 0.0025, Gaussian(5))", "drive0")
         reset_frame("drive0")
         wait(79520, "readout0")
-        measure("readout(2000, 0.005, Rectangular())", "readout0", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
+        measure(
+            "readout(2000, 0.005, Rectangular())",
+            "readout0",
+            None,
+            dual_demod.full("cos", "out1", "sin", "out2", v2),
+            dual_demod.full("minus_sin", "out1", "cos", "out2", v3),
+        )
         save(v2, r1)
         save(v3, r2)
         wait(75500, "drive0")
@@ -208,7 +327,13 @@ with program() as prog:
         play("drive(40, 0.0025, Gaussian(5))", "drive0")
         reset_frame("drive0")
         wait(79770, "readout0")
-        measure("readout(2000, 0.005, Rectangular())", "readout0", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
+        measure(
+            "readout(2000, 0.005, Rectangular())",
+            "readout0",
+            None,
+            dual_demod.full("cos", "out1", "sin", "out2", v2),
+            dual_demod.full("minus_sin", "out1", "cos", "out2", v3),
+        )
         save(v2, r1)
         save(v3, r2)
         wait(75500, "drive0")
@@ -218,7 +343,13 @@ with program() as prog:
         play("drive(40, 0.0025, Gaussian(5))", "drive0")
         reset_frame("drive0")
         wait(80020, "readout0")
-        measure("readout(2000, 0.005, Rectangular())", "readout0", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
+        measure(
+            "readout(2000, 0.005, Rectangular())",
+            "readout0",
+            None,
+            dual_demod.full("cos", "out1", "sin", "out2", v2),
+            dual_demod.full("minus_sin", "out1", "cos", "out2", v3),
+        )
         save(v2, r1)
         save(v3, r2)
         wait(75500, "drive0")
@@ -228,7 +359,13 @@ with program() as prog:
         play("drive(40, 0.0025, Gaussian(5))", "drive0")
         reset_frame("drive0")
         wait(80270, "readout0")
-        measure("readout(2000, 0.005, Rectangular())", "readout0", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
+        measure(
+            "readout(2000, 0.005, Rectangular())",
+            "readout0",
+            None,
+            dual_demod.full("cos", "out1", "sin", "out2", v2),
+            dual_demod.full("minus_sin", "out1", "cos", "out2", v3),
+        )
         save(v2, r1)
         save(v3, r2)
         wait(75500, "drive0")
@@ -238,7 +375,13 @@ with program() as prog:
         play("drive(40, 0.0025, Gaussian(5))", "drive0")
         reset_frame("drive0")
         wait(80520, "readout0")
-        measure("readout(2000, 0.005, Rectangular())", "readout0", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
+        measure(
+            "readout(2000, 0.005, Rectangular())",
+            "readout0",
+            None,
+            dual_demod.full("cos", "out1", "sin", "out2", v2),
+            dual_demod.full("minus_sin", "out1", "cos", "out2", v3),
+        )
         save(v2, r1)
         save(v3, r2)
         wait(75500, "drive0")
@@ -248,7 +391,13 @@ with program() as prog:
         play("drive(40, 0.0025, Gaussian(5))", "drive0")
         reset_frame("drive0")
         wait(80770, "readout0")
-        measure("readout(2000, 0.005, Rectangular())", "readout0", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
+        measure(
+            "readout(2000, 0.005, Rectangular())",
+            "readout0",
+            None,
+            dual_demod.full("cos", "out1", "sin", "out2", v2),
+            dual_demod.full("minus_sin", "out1", "cos", "out2", v3),
+        )
         save(v2, r1)
         save(v3, r2)
         wait(75500, "drive0")
@@ -258,7 +407,13 @@ with program() as prog:
         play("drive(40, 0.0025, Gaussian(5))", "drive0")
         reset_frame("drive0")
         wait(81020, "readout0")
-        measure("readout(2000, 0.005, Rectangular())", "readout0", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
+        measure(
+            "readout(2000, 0.005, Rectangular())",
+            "readout0",
+            None,
+            dual_demod.full("cos", "out1", "sin", "out2", v2),
+            dual_demod.full("minus_sin", "out1", "cos", "out2", v3),
+        )
         save(v2, r1)
         save(v3, r2)
         wait(75500, "drive0")
@@ -268,7 +423,13 @@ with program() as prog:
         play("drive(40, 0.0025, Gaussian(5))", "drive0")
         reset_frame("drive0")
         wait(81270, "readout0")
-        measure("readout(2000, 0.005, Rectangular())", "readout0", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
+        measure(
+            "readout(2000, 0.005, Rectangular())",
+            "readout0",
+            None,
+            dual_demod.full("cos", "out1", "sin", "out2", v2),
+            dual_demod.full("minus_sin", "out1", "cos", "out2", v3),
+        )
         save(v2, r1)
         save(v3, r2)
         wait(75500, "drive0")
@@ -278,7 +439,13 @@ with program() as prog:
         play("drive(40, 0.0025, Gaussian(5))", "drive0")
         reset_frame("drive0")
         wait(81520, "readout0")
-        measure("readout(2000, 0.005, Rectangular())", "readout0", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
+        measure(
+            "readout(2000, 0.005, Rectangular())",
+            "readout0",
+            None,
+            dual_demod.full("cos", "out1", "sin", "out2", v2),
+            dual_demod.full("minus_sin", "out1", "cos", "out2", v3),
+        )
         save(v2, r1)
         save(v3, r2)
         wait(75500, "drive0")
@@ -288,7 +455,13 @@ with program() as prog:
         play("drive(40, 0.0025, Gaussian(5))", "drive0")
         reset_frame("drive0")
         wait(81770, "readout0")
-        measure("readout(2000, 0.005, Rectangular())", "readout0", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
+        measure(
+            "readout(2000, 0.005, Rectangular())",
+            "readout0",
+            None,
+            dual_demod.full("cos", "out1", "sin", "out2", v2),
+            dual_demod.full("minus_sin", "out1", "cos", "out2", v3),
+        )
         save(v2, r1)
         save(v3, r2)
         wait(75500, "drive0")
@@ -298,7 +471,13 @@ with program() as prog:
         play("drive(40, 0.0025, Gaussian(5))", "drive0")
         reset_frame("drive0")
         wait(82020, "readout0")
-        measure("readout(2000, 0.005, Rectangular())", "readout0", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
+        measure(
+            "readout(2000, 0.005, Rectangular())",
+            "readout0",
+            None,
+            dual_demod.full("cos", "out1", "sin", "out2", v2),
+            dual_demod.full("minus_sin", "out1", "cos", "out2", v3),
+        )
         save(v2, r1)
         save(v3, r2)
         wait(75500, "drive0")
@@ -308,10 +487,18 @@ with program() as prog:
         play("drive(40, 0.0025, Gaussian(5))", "drive0")
         reset_frame("drive0")
         wait(82270, "readout0")
-        measure("readout(2000, 0.005, Rectangular())", "readout0", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
+        measure(
+            "readout(2000, 0.005, Rectangular())",
+            "readout0",
+            None,
+            dual_demod.full("cos", "out1", "sin", "out2", v2),
+            dual_demod.full("minus_sin", "out1", "cos", "out2", v3),
+        )
         save(v2, r1)
         save(v3, r2)
-        wait(75000, )
+        wait(
+            75000,
+        )
     with stream_processing():
         r1.buffer(30).average().save("readout(2000, 0.005, Rectangular())_0_I")
         r2.buffer(30).average().save("readout(2000, 0.005, Rectangular())_0_Q")
@@ -355,8 +542,8 @@ config = {
     "elements": {
         "drive0": {
             "mixInputs": {
-                "I": ('con3', 3),
-                "Q": ('con3', 4),
+                "I": ("con3", 3),
+                "Q": ("con3", 4),
                 "lo_frequency": 3900000000,
                 "mixer": "mixer_drive0",
             },
@@ -367,14 +554,14 @@ config = {
         },
         "readout0": {
             "mixInputs": {
-                "I": ('con3', 9),
-                "Q": ('con3', 10),
+                "I": ("con3", 9),
+                "Q": ("con3", 10),
                 "lo_frequency": 5000000000,
                 "mixer": "mixer_readout0",
             },
             "outputs": {
-                "out1": ('con3', 1),
-                "out2": ('con3', 2),
+                "out1": ("con3", 1),
+                "out2": ("con3", 2),
             },
             "intermediate_frequency": 228200000,
             "operations": {
@@ -411,7 +598,49 @@ config = {
     "waveforms": {
         "Envelope_Waveform_I(num_samples = 40, amplitude = 0.0025, shape = Gaussian(5))": {
             "type": "arbitrary",
-            "samples": [0.00012816812592664437, 0.00017246906479309853, 0.0002284843883901181, 0.0002979998210066183, 0.0003826393443408954, 0.00048370145401761686, 0.0006019761856806215, 0.0007375566404361071, 0.000889663130355346, 0.001056501108057972, 0.001235174933829096, 0.0014216776342966804, 0.0016109718120629881, 0.0017971689242729397, 0.00197380392415197, 0.002134190903362869, 0.002271834390902675, 0.002380861999737941, 0.0024564386723947514] + [0.002495121952768689] * 2 + [0.0024564386723947514, 0.002380861999737941, 0.002271834390902675, 0.002134190903362869, 0.00197380392415197, 0.0017971689242729397, 0.0016109718120629881, 0.0014216776342966804, 0.001235174933829096, 0.001056501108057972, 0.000889663130355346, 0.0007375566404361071, 0.0006019761856806215, 0.00048370145401761686, 0.0003826393443408954, 0.0002979998210066183, 0.0002284843883901181, 0.00017246906479309853, 0.00012816812592664437],
+            "samples": [
+                0.00012816812592664437,
+                0.00017246906479309853,
+                0.0002284843883901181,
+                0.0002979998210066183,
+                0.0003826393443408954,
+                0.00048370145401761686,
+                0.0006019761856806215,
+                0.0007375566404361071,
+                0.000889663130355346,
+                0.001056501108057972,
+                0.001235174933829096,
+                0.0014216776342966804,
+                0.0016109718120629881,
+                0.0017971689242729397,
+                0.00197380392415197,
+                0.002134190903362869,
+                0.002271834390902675,
+                0.002380861999737941,
+                0.0024564386723947514,
+            ]
+            + [0.002495121952768689] * 2
+            + [
+                0.0024564386723947514,
+                0.002380861999737941,
+                0.002271834390902675,
+                0.002134190903362869,
+                0.00197380392415197,
+                0.0017971689242729397,
+                0.0016109718120629881,
+                0.0014216776342966804,
+                0.001235174933829096,
+                0.001056501108057972,
+                0.000889663130355346,
+                0.0007375566404361071,
+                0.0006019761856806215,
+                0.00048370145401761686,
+                0.0003826393443408954,
+                0.0002979998210066183,
+                0.0002284843883901181,
+                0.00017246906479309853,
+                0.00012816812592664437,
+            ],
         },
         "Envelope_Waveform_Q(num_samples = 40, amplitude = 0.0025, shape = Gaussian(5))": {
             "type": "arbitrary",
@@ -442,8 +671,20 @@ config = {
         },
     },
     "mixers": {
-        "mixer_drive0": [{'intermediate_frequency': 198114578, 'lo_frequency': 3900000000, 'correction': [1.0, 0.0, 0.0, 1.0]}],
-        "mixer_readout0": [{'intermediate_frequency': 228200000, 'lo_frequency': 5000000000, 'correction': [1.0, 0.0, 0.0, 1.0]}],
+        "mixer_drive0": [
+            {
+                "intermediate_frequency": 198114578,
+                "lo_frequency": 3900000000,
+                "correction": [1.0, 0.0, 0.0, 1.0],
+            }
+        ],
+        "mixer_readout0": [
+            {
+                "intermediate_frequency": 228200000,
+                "lo_frequency": 5000000000,
+                "correction": [1.0, 0.0, 0.0, 1.0],
+            }
+        ],
     },
 }
 
@@ -514,8 +755,8 @@ loaded_config = {
                 "drive(40, 0.0025, Gaussian(5))": "drive(40, 0.0025, Gaussian(5))",
             },
             "mixInputs": {
-                "I": ('con3', 3),
-                "Q": ('con3', 4),
+                "I": ("con3", 3),
+                "Q": ("con3", 4),
                 "mixer": "mixer_drive0",
                 "lo_frequency": 3900000000.0,
             },
@@ -524,8 +765,8 @@ loaded_config = {
             "digitalInputs": {},
             "digitalOutputs": {},
             "outputs": {
-                "out1": ('con3', 1),
-                "out2": ('con3', 2),
+                "out1": ("con3", 1),
+                "out2": ("con3", 2),
             },
             "time_of_flight": 280,
             "smearing": 0,
@@ -534,8 +775,8 @@ loaded_config = {
                 "readout(2000, 0.005, Rectangular())": "readout(2000, 0.005, Rectangular())",
             },
             "mixInputs": {
-                "I": ('con3', 9),
-                "Q": ('con3', 10),
+                "I": ("con3", 9),
+                "Q": ("con3", 10),
                 "mixer": "mixer_readout0",
                 "lo_frequency": 5000000000.0,
             },
@@ -567,7 +808,49 @@ loaded_config = {
     },
     "waveforms": {
         "Envelope_Waveform_I(num_samples = 40, amplitude = 0.0025, shape = Gaussian(5))": {
-            "samples": [0.00012816812592664437, 0.00017246906479309853, 0.0002284843883901181, 0.0002979998210066183, 0.0003826393443408954, 0.00048370145401761686, 0.0006019761856806215, 0.0007375566404361071, 0.000889663130355346, 0.001056501108057972, 0.001235174933829096, 0.0014216776342966804, 0.0016109718120629881, 0.0017971689242729397, 0.00197380392415197, 0.002134190903362869, 0.002271834390902675, 0.002380861999737941, 0.0024564386723947514] + [0.002495121952768689] * 2 + [0.0024564386723947514, 0.002380861999737941, 0.002271834390902675, 0.002134190903362869, 0.00197380392415197, 0.0017971689242729397, 0.0016109718120629881, 0.0014216776342966804, 0.001235174933829096, 0.001056501108057972, 0.000889663130355346, 0.0007375566404361071, 0.0006019761856806215, 0.00048370145401761686, 0.0003826393443408954, 0.0002979998210066183, 0.0002284843883901181, 0.00017246906479309853, 0.00012816812592664437],
+            "samples": [
+                0.00012816812592664437,
+                0.00017246906479309853,
+                0.0002284843883901181,
+                0.0002979998210066183,
+                0.0003826393443408954,
+                0.00048370145401761686,
+                0.0006019761856806215,
+                0.0007375566404361071,
+                0.000889663130355346,
+                0.001056501108057972,
+                0.001235174933829096,
+                0.0014216776342966804,
+                0.0016109718120629881,
+                0.0017971689242729397,
+                0.00197380392415197,
+                0.002134190903362869,
+                0.002271834390902675,
+                0.002380861999737941,
+                0.0024564386723947514,
+            ]
+            + [0.002495121952768689] * 2
+            + [
+                0.0024564386723947514,
+                0.002380861999737941,
+                0.002271834390902675,
+                0.002134190903362869,
+                0.00197380392415197,
+                0.0017971689242729397,
+                0.0016109718120629881,
+                0.0014216776342966804,
+                0.001235174933829096,
+                0.001056501108057972,
+                0.000889663130355346,
+                0.0007375566404361071,
+                0.0006019761856806215,
+                0.00048370145401761686,
+                0.0003826393443408954,
+                0.0002979998210066183,
+                0.0002284843883901181,
+                0.00017246906479309853,
+                0.00012816812592664437,
+            ],
             "type": "arbitrary",
             "is_overridable": False,
             "max_allowed_error": 0.0001,
@@ -603,8 +886,19 @@ loaded_config = {
         },
     },
     "mixers": {
-        "mixer_drive0": [{'intermediate_frequency': 198114578.0, 'lo_frequency': 3900000000.0, 'correction': [1.0, 0.0, 0.0, 1.0]}],
-        "mixer_readout0": [{'intermediate_frequency': 228200000.0, 'lo_frequency': 5000000000.0, 'correction': [1.0, 0.0, 0.0, 1.0]}],
+        "mixer_drive0": [
+            {
+                "intermediate_frequency": 198114578.0,
+                "lo_frequency": 3900000000.0,
+                "correction": [1.0, 0.0, 0.0, 1.0],
+            }
+        ],
+        "mixer_readout0": [
+            {
+                "intermediate_frequency": 228200000.0,
+                "lo_frequency": 5000000000.0,
+                "correction": [1.0, 0.0, 0.0, 1.0],
+            }
+        ],
     },
 }
-
