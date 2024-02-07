@@ -2,40 +2,35 @@
 # QUA library version: 1.1.6
 
 # Logged output for this program:
-# Connection time: 1.1545066833496094
-# Execution time: 0.44145917892456055
+# Connection time: 1.4587697982788086
+# Execution time: 0.5983867645263672
 # readout(2000, 0.005, Rectangular())_0_I (30,)
 # readout(2000, 0.005, Rectangular())_0_Q (30,)
-# Fetch time: 0.2814207077026367
-# Total time: 1.8773865699768066
-
+# Fetch time: 39.20936918258667
+# Total time: 41.266525745391846
 
 from qm.qua import *
 
+nosc = 10
+delay_end = 30000
+prefactor = -nosc / delay_end
+
 with program() as prog:
-    v1 = declare(
-        int,
-    )
-    v2 = declare(
-        fixed,
-    )
-    v3 = declare(
-        fixed,
-    )
-    phase = declare(
-        fixed,
-    )
+    v1 = declare(int)
+    v2 = declare(fixed)
+    v3 = declare(fixed)
+    delay = declare(int)
     wait((4 + (0 * (Cast.to_int(v2) + Cast.to_int(v3)))), "readout0")
     with for_(v1, 0, (v1 < 4096), (v1 + 1)):
-        with for_(
-            phase, 0.013333333333333334, (phase < 9.7), (phase + 0.333333333333333333)
-        ):
+        with for_(delay, 0, delay < delay_end // 4, delay + 250):
             align()
             play("drive(40, 0.0025, Gaussian(5))", "drive0")
-            frame_rotation_2pi(-phase, "drive0")
+            with if_(delay > 4):
+                wait(delay, "drive0")
+            frame_rotation_2pi(prefactor * Cast.to_fixed(4 * delay + 40), "drive0")
             play("drive(40, 0.0025, Gaussian(5))", "drive0")
             reset_frame("drive0")
-            wait(21, "readout0")
+            wait(21 + delay, "readout0")
             measure(
                 "readout(2000, 0.005, Rectangular())",
                 "readout0",
@@ -47,6 +42,7 @@ with program() as prog:
             save(v2, r1)
             r2 = declare_stream()
             save(v3, r2)
+            wait(75000)
     with stream_processing():
         r1.buffer(30).average().save("readout(2000, 0.005, Rectangular())_0_I")
         r2.buffer(30).average().save("readout(2000, 0.005, Rectangular())_0_Q")
