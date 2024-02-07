@@ -1,6 +1,15 @@
 # Single QUA script generated at 2024-02-07 17:07:09.341746
 # QUA library version: 1.1.6
 
+# Logged output for this program:
+# Connection time: 1.1545066833496094
+# Execution time: 0.44145917892456055
+# readout(2000, 0.005, Rectangular())_0_I (30,)
+# readout(2000, 0.005, Rectangular())_0_Q (30,)
+# Fetch time: 0.2814207077026367
+# Total time: 1.8773865699768066
+
+
 from qm.qua import *
 
 with program() as prog:
