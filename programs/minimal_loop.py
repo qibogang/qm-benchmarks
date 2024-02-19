@@ -16,43 +16,27 @@ delay_end = 30000
 prefactor = -nosc / delay_end
 
 with program() as prog:
-    v1 = declare(int)
     v2 = declare(fixed)
     v3 = declare(fixed)
-    delay = declare(int)
-    phase = declare(int)
+    v = declare(fixed)
     wait((4 + (0 * (Cast.to_int(v2) + Cast.to_int(v3)))), "readout0")
-    with for_(v1, 0, (v1 < 4096), (v1 + 1)):
-        # with for_(delay, 0, (delay < 7500), (delay + 250)):
-        # with for_(delay, 0, (delay < 30), (delay + 1)):
-        with for_(phase, 0, (phase < 30), (phase + 1)):
-            # with for_(
-            #    phase, 0.013333333333333334, (phase < 9.7), (phase + 0.333333333333333333)
-            # ):
-            align()
-            # play("drive(40, 0.0025, Gaussian(5))", "drive0")
-            ##with if_(delay > 4):
-            ##    wait(delay, "drive0")
-            ## frame_rotation_2pi(prefactor * Cast.to_fixed(4 * delay + 40), "drive0")
-            # play("drive(40, 0.0025, Gaussian(5))", "drive0")
-            ## reset_frame("drive0")
-            # wait(21, "readout0")
-            ##wait(21 + delay, "readout0")
-            measure(
-                "readout(2000, 0.005, Rectangular())",
-                "readout0",
-                None,
-                dual_demod.full("cos", "out1", "sin", "out2", v2),
-                dual_demod.full("minus_sin", "out1", "cos", "out2", v3),
-            )
-            r1 = declare_stream()
-            save(v2, r1)
-            r2 = declare_stream()
-            save(v3, r2)
-            wait(75000)
+    with for_(v, 0, (v < 30), (v + 1)):
+        align()
+        measure(
+            "readout(2000, 0.005, Rectangular())",
+            "readout0",
+            None,
+            dual_demod.full("cos", "out1", "sin", "out2", v2),
+            dual_demod.full("minus_sin", "out1", "cos", "out2", v3),
+        )
+        r1 = declare_stream()
+        save(v2, r1)
+        r2 = declare_stream()
+        save(v3, r2)
+        wait(75000)
     with stream_processing():
-        r1.buffer(30).average().save("readout(2000, 0.005, Rectangular())_0_I")
-        r2.buffer(30).average().save("readout(2000, 0.005, Rectangular())_0_Q")
+        r1.buffer(30).save("readout(2000, 0.005, Rectangular())_0_I")
+        r2.buffer(30).save("readout(2000, 0.005, Rectangular())_0_Q")
 
 
 config = {

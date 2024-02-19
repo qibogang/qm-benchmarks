@@ -2,6 +2,7 @@ import argparse
 import time
 from importlib import import_module
 
+import matplotlib.pyplot as plt
 import numpy as np
 from qm import QuantumMachinesManager, SimulationConfig, generate_qua_script, qua
 from qm.octave import QmOctaveConfig
@@ -14,7 +15,7 @@ PORT = 80
 parser = argparse.ArgumentParser()
 parser.add_argument("program")
 parser.add_argument("-s", "--simulate", action="store_true")
-parser.add_argument("--duration", default=5000)
+parser.add_argument("--duration", default=10000)
 
 
 class Controller:
@@ -53,16 +54,20 @@ def main(program, simulate, duration):
     prog = module.prog
     config = module.config
 
-    if simulate:
-        result = simulate(config, prog, duration=5000)
-        samples = result.get_simulated_samples()
-        np.save("data.npy", samples.con3.analog)
-        return
-
     start_time = time.time()
     controller = Controller()
     conn_time = time.time() - start_time
     print("Connection time:", conn_time)
+
+    if simulate:
+        result = controller.simulate(config, prog, duration=5000)
+        samples = result.get_simulated_samples()
+
+        plt.figure()
+        samples.con1.plot()
+        plt.savefig(f"{program}.png")
+        np.savez(f"{program}.npz", **samples.con1.analog)
+        return
 
     start_time = time.time()
     result = controller.execute(config, prog)
