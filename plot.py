@@ -9,11 +9,16 @@ parser.add_argument("program")
 parser.add_argument("-p", "--port", type=int, default=None)
 
 
-def main(program):
-    data = np.load(f"{program}.npz")
+def main(program, port):
+    data = np.load(f"data/{program}.npz")
 
     plt.figure()
-    plt.plot(data)
+    plt.suptitle(program)
+    for key, value in data.items():
+        if "-" not in key:
+            plt.plot(value, label=key)
+    plt.legend()
+
     if port is not None:
         mpld3.show(port=port)
     else:
