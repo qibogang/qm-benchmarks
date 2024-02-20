@@ -2,7 +2,6 @@ import argparse
 import time
 from importlib import import_module
 
-import matplotlib.pyplot as plt
 import numpy as np
 from qm import QuantumMachinesManager, SimulationConfig, generate_qua_script, qua
 from qm.octave import QmOctaveConfig
@@ -62,11 +61,7 @@ def main(program, simulate, duration):
     if simulate:
         result = controller.simulate(config, prog, duration=5000)
         samples = result.get_simulated_samples()
-
-        plt.figure()
-        samples.con1.plot()
-        plt.savefig(f"{program}.png")
-        np.savez(f"{program}.npz", **samples.con1.analog)
+        np.savez(f"data/{program}.npz", **samples.con1.analog)
         return
 
     start_time = time.time()
